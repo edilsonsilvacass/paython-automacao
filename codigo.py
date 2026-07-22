@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-pyautogui.PAUSE = 0.5
+pyautogui.PAUSE = 1.0
 pyautogui.FAILSAFE = True
 link = "https://dlp.hashtagtreinamentos.com/python/intensivao/login"
 
@@ -49,7 +49,7 @@ try:
     for indice, linha in tabela.iterrows():
         try:
             pyautogui.click(COORDS["botao_cadastrar"])
-            time.sleep(0.5)
+            time.sleep(1.0)
             pyautogui.click(COORDS["codigo"])
 
             for coluna in ["codigo", "marca", "tipo", "categoria", "preco_unitario", "custo"]:
@@ -63,7 +63,7 @@ try:
             pyautogui.press('enter')
 
             print(f"[{indice+1}/{total}] Produto {linha['codigo']} cadastrado")
-            time.sleep(0.3)
+            time.sleep(0.8)
         except KeyboardInterrupt:
             print(f"\n[INTERRUPCAO] Cancelado no produto {linha['codigo']}")
             break
