@@ -1,4 +1,5 @@
 import os
+import subprocess
 import pyautogui
 import time
 import pandas
@@ -16,9 +17,9 @@ for i in range(5, 0, -1):
     time.sleep(1)
 
 try:
-    pyautogui.press('win')
-    pyautogui.write("chrome")
-    pyautogui.press('enter')
+    subprocess.Popen(["start", "chrome"], shell=True)
+    time.sleep(2)
+    pyautogui.hotkey('ctrl', 'l')
     pyautogui.write(link)
     pyautogui.press('enter')
     time.sleep(3)
