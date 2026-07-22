@@ -1,6 +1,10 @@
+import os
 import pyautogui
 import time
 import pandas
+from dotenv import load_dotenv
+
+load_dotenv()
 
 pyautogui.PAUSE = 0.5
 link = "https://dlp.hashtagtreinamentos.com/python/intensivao/login"
@@ -15,9 +19,9 @@ time.sleep(3)
 
 # Passo 2: Login
 pyautogui.click(x=448, y=415)
-pyautogui.write("seu_email@example.com")
+pyautogui.write(os.getenv("EMAIL", "seu_email@example.com"))
 pyautogui.press('tab')
-pyautogui.write("sua_senha")
+pyautogui.write(os.getenv("SENHA", "sua_senha"))
 pyautogui.press('tab')
 pyautogui.press('enter')
 time.sleep(3)
