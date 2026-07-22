@@ -7,7 +7,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 pyautogui.PAUSE = 0.5
+pyautogui.FAILSAFE = True
 link = "https://dlp.hashtagtreinamentos.com/python/intensivao/login"
+
+print("Iniciando em 5 segundos... mova o mouse para o canto superior esquerdo para cancelar.")
+for i in range(5, 0, -1):
+    print(f"{i}...")
+    time.sleep(1)
 
 try:
     pyautogui.press('win')
@@ -45,11 +51,16 @@ try:
 
             print(f"[{indice+1}/{total}] Produto {linha['codigo']} cadastrado")
             time.sleep(0.3)
+        except KeyboardInterrupt:
+            print(f"\n[INTERRUPCAO] Cancelado no produto {linha['codigo']}")
+            break
         except Exception as e:
             print(f"[ERRO] Falha ao cadastrar produto {linha.get('codigo', 'desconhecido')}: {e}")
             continue
 
     print("Cadastro concluido!")
 
+except KeyboardInterrupt:
+    print("\n[INTERRUPCAO] Script interrompido pelo usuario")
 except Exception as e:
     print(f"[ERRO FATAL] {e}")
