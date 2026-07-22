@@ -9,7 +9,7 @@ import time
 # pyautogui.hotkey - aperta uma combinação de teclas
 
 pyautogui.PAUSE = 0.5  # Pausa de 0.5 segundos entre as ações
-link = "https:https://dlp.hashtagtreinamentos.com/python/intensivao/login"
+link = "https://dlp.hashtagtreinamentos.com/python/intensivao/login"
 # Passo 1: Entra no sistema da empresa
 # Abrir o navegador
 pyautogui.press('win')
